@@ -1,0 +1,17 @@
+node_modules/
+frontend/dist/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.py[cod]
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+*.log
+.idea/
+.local-engines/
+.local-data/

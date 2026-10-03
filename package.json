@@ -1,0 +1,24 @@
+{
+  "name": "xiangqi-ai-academy",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "npm --workspace frontend run dev -- --host 127.0.0.1",
+    "dev:backend": "python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000",
+    "build": "npm --workspace frontend run build",
+    "lint": "npm --workspace frontend run lint",
+    "typecheck": "npm --workspace frontend run typecheck",
+    "test": "npm --workspace frontend run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "vitest": "^4.1.11"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}

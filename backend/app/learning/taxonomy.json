@@ -1,0 +1,23 @@
+{
+  "version": "1",
+  "skills": [
+    {"id": "read_threats", "name": "Đọc mối đe dọa", "description": "Nhận ra đòn trực tiếp và quân đang bị đe dọa."},
+    {"id": "calculate_variations", "name": "Tính biến", "description": "Dự đoán phản ứng hợp lệ và kiểm tra hệ quả tiếp theo."},
+    {"id": "develop_pieces", "name": "Phát triển quân", "description": "So sánh mục tiêu đưa quân vào vị trí hoạt động."},
+    {"id": "transpositions", "name": "Chuyển vị", "description": "Nhận ra các thứ tự nước khác nhau có thể tới cùng vị trí."},
+    {"id": "defense", "name": "Phòng thủ", "description": "Tìm cách hóa giải đe dọa mà không tạo khẳng định chưa kiểm chứng."},
+    {"id": "middlegame_transition", "name": "Chuyển sang trung cuộc", "description": "Kết nối mục tiêu khai cuộc với kế hoạch tiếp theo."}
+  ],
+  "legacy_tag_map": {
+    "predict-response": ["read_threats", "calculate_variations"],
+    "explain-reasoning": ["develop_pieces"],
+    "transfer": ["middlegame_transition"],
+    "compare-move-order": ["transpositions"]
+  },
+  "rubric_policy": {
+    "points_possible": 2,
+    "focus_alignment": "1 point when the selected move matches the authored exercise focus; this is not a claim that it is the objectively best move.",
+    "reason_presence": "1 point when the learner provides a non-empty explanation; semantic quality is not automatically graded.",
+    "remaining_criteria": "Shown as learner self-checks and never presented as machine-verified mastery."
+  }
+}

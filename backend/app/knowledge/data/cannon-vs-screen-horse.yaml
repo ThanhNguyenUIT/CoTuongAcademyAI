@@ -1,0 +1,151 @@
+opening_id: cannon-vs-screen-horse
+name_vi: Pháo đầu đối Bình phong mã
+classification_code: C0 · tên nhóm tham khảo, chưa gán mã biến cụ thể
+description: >-
+  Học cách nhận diện Pháo đầu và cấu trúc phát triển hai Mã của Bình phong mã.
+  Các dòng minh họa trong prototype là experimental, đã kiểm tra nước hợp lệ,
+  chưa được biên tập viên cờ tướng xác nhận là lý thuyết khai cuộc.
+version: 0.1.0-experimental
+review_status: experimental
+source_refs:
+  - id: xm-central-cannon
+    title: The Central Cannon Opening in Xiangqi
+    url: https://www.xiangqimaster.com/openings/central-cannon
+    note: Tham khảo nhận diện Pháo đầu và nước đáp Mã 8 tiến 7.
+  - id: wxf-introduction
+    title: Introduction to Xiangqi for Chessplayers
+    url: https://www.wxf-xiangqi.org/images/free_download_books/xiangqi_introduction_chessplayers_20150323.pdf
+    note: Tài liệu giới thiệu luật và khái niệm khai cuộc; không dùng làm chứng cứ cho đánh giá engine.
+lines:
+  - id: screen-horses-right-first
+    label: Thử nghiệm A · Mã cánh phải trước
+    version: 0.1.0-experimental
+    review_status: experimental
+    source_refs: [xm-central-cannon, wxf-introduction]
+    moves_iccs: [b2e2, h9g7, b0c2, b9c7]
+  - id: screen-horses-left-first
+    label: Thử nghiệm B · Mã cánh trái trước
+    version: 0.1.0-experimental
+    review_status: experimental
+    source_refs: [xm-central-cannon, wxf-introduction]
+    moves_iccs: [b2e2, b9c7, b0c2, h9g7]
+  - id: screen-horses-red-two-horses
+    label: Thử nghiệm C · Đỏ phát triển cả hai Mã
+    version: 0.1.0-experimental
+    review_status: experimental
+    source_refs: [xm-central-cannon, wxf-introduction]
+    moves_iccs: [b2e2, h9g7, b0c2, b9c7, h0g2, g9e7]
+annotations:
+  - id: central-cannon-observation
+    position_key: rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR r
+    claim: Pháo ở cánh b đi tới cột e là ví dụ nước mở đầu Pháo đầu trong bài học này.
+    source_refs: [xm-central-cannon]
+    review_status: experimental
+    version: 0.1.0-experimental
+  - id: horse-screen-observation
+    position_key: rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/4C2C1/9/RNBAKABNR b
+    claim: Nước Mã h9g7 là nước minh họa đáp Pháo đầu bằng phát triển Mã.
+    source_refs: [xm-central-cannon]
+    review_status: experimental
+    version: 0.1.0-experimental
+lesson:
+  id: lesson-cannon-screen-horse-01
+  slug: phao-dau-binh-phong-ma
+  title: Nhìn cấu trúc trước khi nhớ biến
+  content_version: 0.1.0-experimental
+  review_status: experimental
+  outcomes:
+    - Nhận diện Pháo đầu và nước phát triển Mã minh họa.
+    - Dự đoán một phản ứng hợp lệ của Đen và nêu lý do bằng lời của mình.
+    - Nhận ra hai thứ tự phát triển khác nhau có thể tới cùng vị trí.
+  steps:
+    - id: observe-central-cannon
+      title: Quan sát nước mở đầu
+      body: >-
+        Đỏ đưa Pháo từ b2 tới e2. Hãy quan sát cột trung tâm và quân nào đang
+        che Tướng Đen. Đây là câu hỏi quan sát, chưa phải kết luận rằng nước này
+        có một đáp án chiến lược duy nhất.
+      moves_iccs: [b2e2]
+      annotation_ids: [central-cannon-observation]
+    - id: predict-screen-horse
+      title: Dự đoán phản ứng
+      body: >-
+        Trước khi mở đáp án, hãy chọn một nước Đen hợp lệ. Nước Mã h9g7 trong
+        ví dụ đưa một Mã ra khỏi hàng cuối. Giải thích quân nào được phát triển
+        và câu hỏi chiến thuật nào vẫn cần kiểm tra.
+      moves_iccs: [b2e2, h9g7]
+      annotation_ids: [horse-screen-observation]
+    - id: compare-transposition
+      title: So sánh thứ tự nước
+      body: >-
+        Thử hai dòng có thứ tự phát triển Mã Đen khác nhau. Đồ thị gộp vị trí
+        trùng nhau nhưng vẫn giữ cả hai đường để so sánh. Đây là minh họa dữ
+        liệu, không khẳng định hai thứ tự tương đương về chất lượng thực chiến.
+      moves_iccs: [b2e2, h9g7, b0c2, b9c7]
+      annotation_ids: []
+  exercises:
+    - id: predict-black-response
+      fen: rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/4C2C1/9/RNBAKABNR b - - 0 1
+      question: Sau b2e2, chọn phản ứng minh họa hợp lệ và nói điều bạn muốn kiểm tra tiếp theo.
+      skill_tags: [predict-response, explain-reasoning]
+      rubric:
+        - Chọn một nước hợp lệ trong vị trí.
+        - Nêu quân hoặc mục tiêu bạn muốn phát triển.
+        - Nêu ít nhất một điều cần kiểm tra tiếp theo, không gọi nước đi là tốt nhất nếu chưa có bằng chứng.
+      source_refs: [xm-central-cannon, wxf-introduction]
+      review_status: experimental
+      hint_ladder:
+        - Quan sát Pháo Đỏ đang hướng về cột nào.
+        - Tìm một Mã Đen có thể phát triển mà không bỏ lượt.
+        - Phản ứng minh họa trong bài là h9g7; hãy tự nêu lý do rồi mới xem phản hồi.
+      choices:
+        - id: develop-horse
+          text: h9g7 · phát triển Mã
+          move_iccs: h9g7
+          correct: true
+          feedback: Nước này hợp lệ và là phản ứng minh họa được nguồn khai cuộc nêu. Hãy nói rõ bạn muốn kiểm tra tiếp điều gì trên bàn cờ.
+          counterplay: Phản ứng tiếp theo của Đỏ chưa được chọn sẵn như đáp án duy nhất. Hãy dùng bàn cờ để kiểm tra nước hợp lệ và, nếu có cấu hình, dùng engine như một bằng chứng riêng.
+          counterplay_moves_iccs: [b0c2]
+        - id: move-blocked-rook
+          text: a9a8 · Xe tiến một ô
+          move_iccs: a9a8
+          correct: false
+          feedback: Đây là nước hợp lệ, nhưng bài tập đang hỏi phản ứng minh họa bằng phát triển Mã. Không có nghĩa Xe tiến là nước xấu trong mọi thế.
+          counterplay: Thử phản ứng Đỏ b0c2 sau nước Xe; chuỗi này chỉ minh họa một phản ứng hợp lệ để kiểm tra, không xếp hạng nước đi.
+          counterplay_moves_iccs: [b0c2]
+        - id: move-cannon-sideways
+          text: h7g7 · chuyển Pháo ngang
+          move_iccs: h7g7
+          correct: false
+          feedback: Đây cũng là nước hợp lệ. Hãy so sánh ý tưởng chuyển Pháo với mục tiêu phát triển Mã mà câu hỏi đang luyện.
+          counterplay: Thử phản ứng Đỏ b0c2 sau khi Pháo chuyển ngang; chuỗi này chỉ minh họa một phản ứng hợp lệ để kiểm tra, không xếp hạng nước đi.
+          counterplay_moves_iccs: [b0c2]
+    - id: transfer-development-idea
+      fen: r1bakab1r/9/1cn3nc1/p1p1p1p1p/9/9/P1P1P1P1P/2N1C2C1/9/R1BAKABNR r - - 4 3
+      question: "Hai thứ tự phát triển Mã Đen đã tới vị trí này. Đỏ đi: chọn một phương án để vận dụng ý tưởng phát triển quân, rồi giải thích vì sao."
+      skill_tags: [transfer, compare-move-order, explain-reasoning]
+      rubric:
+        - Nhận ra đây là vị trí chung sau hai thứ tự nước khác nhau.
+        - Nêu mục tiêu của nước được chọn bằng lời của mình.
+        - Phân biệt lựa chọn phù hợp với mục tiêu bài tập với tuyên bố về nước tốt nhất.
+      source_refs: [xm-central-cannon, wxf-introduction]
+      review_status: experimental
+      hint_ladder:
+        - Nhìn xem Mã nào của Đỏ vẫn ở hàng cuối.
+        - So sánh đưa quân đó vào cuộc với đẩy một Binh cánh.
+        - h0g2 là lựa chọn minh họa để luyện ý tưởng phát triển; điều đó không tự kết luận nó là nước tốt nhất.
+      choices:
+        - id: develop-second-horse
+          text: h0g2 · đưa Mã còn lại vào cuộc
+          move_iccs: h0g2
+          correct: true
+          feedback: Nước hợp lệ và bám vào ý tưởng phát triển quân. Hãy giải thích bạn muốn Mã hỗ trợ hoặc kiểm soát khu vực nào.
+          counterplay: Đen có thể đáp g9e7 trong ví dụ. Hãy dùng luật kiểm tra nước và tự mô tả mục tiêu; chưa gán đánh giá engine.
+          counterplay_moves_iccs: [g9e7]
+        - id: push-wing-pawn
+          text: a3a4 · đẩy Binh cánh
+          move_iccs: a3a4
+          correct: false
+          feedback: Đây cũng là nước hợp lệ; nó không trả lời mục tiêu luyện chuyển giao là đưa quân chưa phát triển vào cuộc. Nêu lý do nếu bạn muốn ưu tiên nước Binh.
+          counterplay: Đen có thể đáp g9e7 trong ví dụ. Hãy so sánh kế hoạch này với phát triển Mã, không vội gọi một phương án là tốt nhất.
+          counterplay_moves_iccs: [g9e7]
